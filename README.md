@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Time Tracking Dashboard
 
-## Getting Started
+A small dashboard built for a software engineering project at DHBW.
+It provides analysis for issue-based time tracking, which GitLab itself does not natively offer.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+> [!NOTE]  
+> This project was developed in a short amount of time, so the code quality is not great.  
+> It’s more a "it just works somehow" kind of project.
+> 
+## Features
+
+- 📊 **Project Overview**: Sprint metrics, velocity tracking, and category distribution
+- 📈 **Time Series Charts**: Weekly performance trends and team activity comparison
+- 🎯 **Team & Categories**: Pie charts and bar charts for time allocation analysis
+- ⚡ **Productivity Analysis**: Hourly and weekly productivity patterns
+- 👥 **Team Collaboration**: Network visualization of team collaboration
+- 📋 **Issue Analysis**: Issue complexity and time analysis
+- 📅 **Detailed Activity**: GitHub-style activity heatmap
+
+## Demo
+
+![Dashboard Demo](public/images/dashboard-demo.gif)
+
+
+## Configuration
+
+### 1. GitLab API Configuration
+
+Edit `config/dashboardConfig.ts` and update the following settings:
+
+```typescript
+export const GITLAB_CONFIG = {
+    API_URL: 'https://gitlab.com/api/graphql',
+    GROUP_PATH: 'your-group/your-project', // Replace with your GitLab group/project path
+    TOKEN: 'your-gitlab-token', // Replace with your GitLab personal access token
+    ISSUE_BASE_URL: 'https://gitlab.com/your-group/your-project/-/issues'
+} as const;
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Getting Your GitLab Token
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Go to GitLab → Settings → Access Tokens
+2. Create a new token with `read_api` scope
+3. Copy the token and paste it in the config file
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. Team Members Configuration
 
-## Learn More
+Update the team members list in `config/dashboardConfig.ts`:
 
-To learn more about Next.js, take a look at the following resources:
+```typescript
+export const TEAM_MEMBERS = [
+    "username1",
+    "username2", 
+    "username3",
+    // Add all team member usernames
+] as const;
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Date Range Configuration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Update the date range in `app/page.tsx`:
 
-## Deploy on Vercel
+```typescript
+// Set your desired date range
+const startDate = new Date('2024-01-01'); // Start date
+const endDate = new Date('2024-12-31');   // End date
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 4. Categories Configuration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The dashboard uses these default categories. You can modify them in `config/dashboardConfig.ts`:
+
+```typescript
+export const CATEGORIES = {
+    REQUIREMENTS_ENGINEERING: "Requirements Engineering",
+    ENTWURF: "Entwurf", 
+    IMPLEMENTATION_TEST: "Implementation & Test",
+    PROJEKTMANAGEMENT: "Projektmanagement"
+} as const;
+```
+
+
+
+> [!WARNING]  
+> Make sure your GitLab issues have labels that match these categories.
+> 
+
+## Contributing
+
+If you want to improve this projects, feel free to create a fork :)
+
+## Support
+If you need help with setting up the project (for instance the api key or adding the labels to the issues on gitlab), feel free to contact me on discord:
+[cubepixels](https://discord.com/users/cubepixels)
