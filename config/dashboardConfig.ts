@@ -1,19 +1,17 @@
 // GitLab Configuration
 export const GITLAB_CONFIG = {
     API_URL: 'https://gitlab.com/api/graphql',
-    GROUP_PATH: 'dhbw-se/se-tinf23b6/g3-dashify',
-    TOKEN: 'TOKEN',
-    ISSUE_BASE_URL: 'https://gitlab.com/dhbw-se/se-tinf23b6/g3-dashify/-/issues'
+    GROUP_PATH: 'dhbw-se/se2-tinf23b6/g2-julia',
+    TOKEN: 'glpat-0-mjyX9VB_TCowcUSxVPPm86MQp1OmRyeXU1Cw.01.120xuoirr',
+    ISSUE_BASE_URL: 'https://gitlab.com/dhbw-se/se2-tinf23b6/g2-julia/wc/-/issues'
 } as const;
 
 // Team Members
 export const TEAM_MEMBERS = [
-    "FloHochSchule",
-    "EinsEli", 
-    "J.L.V",
-    "nisaphie",
-    "aghyy",
-    "CubePixels"
+    "KlausKleber1969",
+    "maxjjj", 
+    "joscha20044",
+    "mohammad-ahmadi10",
 ] as const;
 
 // Category Configuration
