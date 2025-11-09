@@ -80,7 +80,7 @@ export const CATEGORIES = {
 } as const;
 ```
 ### 5. Start Project
-In the Projectfolder:
+In the project folder `gitlab-timetracking-analysis`:
 ```bash
 npm run dev
 ```
