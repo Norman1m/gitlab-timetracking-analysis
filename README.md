@@ -79,7 +79,11 @@ export const CATEGORIES = {
     PROJEKTMANAGEMENT: "Projektmanagement"
 } as const;
 ```
-
+### 5. Start Project
+In the Projectfolder:
+```bash
+npm run dev
+```
 
 
 > [!WARNING]  
